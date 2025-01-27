@@ -1,0 +1,30 @@
+<div class="container mt-5 product-details">
+    <div class="row">
+      <!-- صورة المنتج -->
+      <div class="col-md-6">
+        <img [src]="product.image || 'assets/placeholder.png'" class="img-fluid rounded" alt="{{ product.name }}">
+      </div>
+  
+      <!-- تفاصيل المنتج -->
+      <div class="col-md-6">
+        <h2>{{ product.name }}</h2>
+        <p class="price">{{ product.price }}$</p>
+        <p class="description">{{ product.description }}</p>
+        <ul>
+          <li><strong>الحالة:</strong> {{ product.condition }}</li>
+          <li><strong>الشركة المصنعة:</strong> {{ product.brand }}</li>
+        </ul>
+  
+        <!-- أزرار التفاعل -->
+        <div class="actions mt-4">
+          <a [href]="'https://wa.me/' + product.contact" target="_blank" class="btn btn-whatsapp">
+            تواصل عبر <i class="fab fa-whatsapp"></i>
+          </a>
+          <button (click)="addToWishlist()" class="btn btn-wishlist">
+            <i class="fas fa-heart"></i> أضف إلى المفضلة
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

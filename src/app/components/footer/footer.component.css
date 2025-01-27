@@ -1,0 +1,45 @@
+/* تصميم الـ Footer */
+.footer {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  padding: 20px 0;
+  border-top: 1px solid var(--light-border);
+  transition: all 0.3s ease-in-out;
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.footer .social-icon {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.footer .social-icon:hover {
+  color: #d4171e;
+}
+
+.footer .copyright {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* الوضع الداكن */
+body.dark-mode .footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-top: 1px solid #444;
+}
+
+body.dark-mode .footer .social-icon {
+  color: #f8f9fa;
+}
+
+body.dark-mode .footer .social-icon:hover {
+  color: #ed1c24;
+}

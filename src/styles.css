@@ -1,0 +1,140 @@
+/* الألوان العامة */
+:root {
+  --primary-color: #131842; /* لون الخلفية الداكن */
+  --secondary-color: #ed1c24; /* اللون الأساسي */
+  --menu-gray: #6c757d; /* لون القائمة */
+  --light-bg: #ffffff; /* لون الخلفية الفاتحة */
+  --dark-bg: #000000; /* لون الخلفية الداكنة */
+  --light-text: #000000; /* لون النص في الوضع الفاتح */
+  --dark-text: #ffffff; /* لون النص في الوضع الداكن */
+}
+/* الوضع الافتراضي (وضع النهار) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Cairo', sans-serif;
+}
+/* تطبيق الخط العربي لجميع عناصر الموقع */
+body {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* تحسين النصوص باللغة العربية */
+h1, h2, h3, h4, h5, h6, p, a, span {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl; /* محاذاة النص من اليمين لليسار */
+  text-align: right;
+}
+
+/* تخصيص القائمة الرئيسية */
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+a {
+  color: var(--secondary-color);
+}
+
+a:hover {
+  color: #000000;
+}
+/* الوضع الداكن */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* تخصيص عناصر الـ Navbar */
+.dark-mode .navbar {
+  background-color: #222 !important;
+  border-bottom: 1px solid #555;
+}
+
+.dark-mode a {
+  color: var(--secondary-color) !important;
+}
+/* تحسين الأزرار في الوضع الداكن */
+.dark-mode .btn {
+  font-family: 'Cairo', sans-serif;
+  background-color: gray;
+  color: white;
+  margin-left: 10px;
+}
+
+.dark-mode .btn-outline-light {
+  border-color: rgb(31, 43, 212);
+  color: var(--secondary-color);
+}
+
+.dark-mode .btn-outline-light:hover {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+/* تحسين زر القائمة في الوضع الداكن */
+.dark-mode .navbar-toggler {
+  border-color: var(--secondary-color);
+}
+
+.dark-mode .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* تحسين الجدول في الوضع الداكن */
+.dark-mode table {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode th, .dark-mode td {
+  border: 1px solid #444;
+}
+
+/* تحسين النماذج */
+.dark-mode input, 
+.dark-mode textarea {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #555;
+}
+
+/* تحسين البحث في الوضع الداكن */
+.dark-mode .search-input {
+  background-color: #fff;
+  border: 2px solid var(--secondary-color);
+  color: #000;
+}
+
+.dark-mode .search-btn {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+.dark-mode .search-btn:hover {
+  background-color: #ffffff;
+  color: #121212;
+}
+/* تحسين المسافات بين الأيقونات */
+.social-icons a {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-right: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+.dark-mode .social-icons a {
+  color: var(--secondary-color);
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
+/* تحسين القائمة الجانبية في الوضع الداكن */
+
+

@@ -1,0 +1,46 @@
+<div class="container mt-5 admin-dashboard">
+    <h2 class="section-title text-center">إحصائيات المنتجات</h2>
+  
+    <div class="row text-center mt-4">
+      <!-- إجمالي عدد المنتجات -->
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h4>إجمالي المنتجات</h4>
+          <p class="stat-number">{{ totalProducts }}</p>
+        </div>
+      </div>
+  
+      <!-- المنتجات المتوفرة -->
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h4>المنتجات المتوفرة</h4>
+          <p class="stat-number">{{ availableProducts }}</p>
+        </div>
+      </div>
+  
+      <!-- المنتجات غير المتوفرة -->
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h4>المنتجات غير المتوفرة</h4>
+          <p class="stat-number">{{ unavailableProducts }}</p>
+        </div>
+      </div>
+  
+      <!-- التصنيفات -->
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h4>عدد التصنيفات</h4>
+          <p class="stat-number">{{ categories.length }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- مخطط التصنيفات -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h4 class="text-center">التوزيع حسب التصنيفات</h4>
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </div>
+  </div>
+  

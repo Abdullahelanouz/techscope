@@ -1,0 +1,199 @@
+/* الألوان العامة */
+:root {
+  --primary-color: #131842; /* لون الشريط العلوي */
+  --secondary-color: #ed1c24; /* لون القوائم */
+  --menu-gray: #6c757d; /* لون القائمة */
+  --light-text: #ffffff;
+  --dark-text: #000000;
+  --light-bg: #ffffff; /* لون الخلفية الفاتحة */
+  --dark-bg: #000000; /* لون الخلفية الداكنة */
+}
+
+/* تخصيص الشريط العلوي */
+.top-bar {
+  background-color: #f0f0f3;
+  color: var(--light-text);
+  border-bottom: 2px solid var(--secondary-color);
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* تخصيص القائمة الرئيسية */
+.custom-nav-menu {
+  background-color: var(--secondary-color);
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+}
+
+/* تخصيص زر تسجيل الدخول */
+.btn-login {
+  background-color: #d4171e;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-login:hover {
+  background-color: #1762d4;
+  color: #ffffff;
+}
+
+/* الوضع الداكن */
+.dark-mode .btn-login {
+  background-color: #ffffff;
+  color: var(--secondary-color);
+}
+
+.dark-mode .btn-login:hover {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+/* لون الروابط الرمادية */
+.gray-menu-link {
+  color: var(--menu-gray) !important;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+/* تمييز العنصر النشط */
+.navbar-nav .nav-link.active-link,
+.navbar-nav .nav-link:hover {
+  background-color: #131842;
+  color: var(--secondary-color) !important;
+  border-radius:10px;
+}
+
+/* تخصيص زر التبديل */
+.custom-toggler {
+  background-color: #ed1c24;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 15px; /* مسافة بين الزر والقائمة */
+}
+
+.custom-toggler:hover {
+  background-color: #d4171e;
+}
+
+/* تخصيص القائمة المنسدلة */
+.custom-nav-menu {
+  background-color: var(--dark-bg); /* الوضع الفاتح */
+  color: var(--light-text);
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* الوضع الداكن */
+.dark-mode .custom-nav-menu {
+  background-color: var(--bg);
+  color: var(--dark-text);
+}
+
+/* إظهار القائمة مع تباعد بينها وبين الزر */
+.show-menu {
+  display: block !important;
+  margin-top: 20px; /* إضافة مسافة عند فتح القائمة */
+}
+
+/* لون الروابط */
+.gray-menu-link {
+  color: var(--menu-gray) !important;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+/* تمييز العنصر النشط */
+.navbar-nav .nav-link.active-link,
+.navbar-nav .nav-link:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color) !important;
+  border-radius: 5px;
+}
+
+/* الوضع الداكن للروابط */
+.dark-mode .navbar-nav .nav-link {
+  color: var(--dark-text) !important;
+}
+
+.dark-mode .navbar-nav .nav-link.active-link,
+.dark-mode .navbar-nav .nav-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--dark-bg) !important;
+}
+
+/* استجابة الهواتف المحمولة */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+ .logo{
+  margin-right: -63px;
+ }
+  .social-icons {
+    margin: 10px auto;
+  }
+
+  .search-bar {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .custom-toggler {
+    position: absolute;
+    left: 0px;
+    top: 26px;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  /* خلفية القائمة المنسدلة للوضع الفاتح */
+  .show-menu {
+    position: fixed;
+    top: 50px; /* مسافة من الأعلى بعد زر التبديل */
+    left: 0;
+    width: 75%;
+    height: 100%;
+    background-color:#000000;
+    color: #fff;
+    z-index: 1050;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* خلفية القائمة المنسدلة للوضع الداكن */
+  .dark-mode .show-menu {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+  }
+
+  .custom-toggler:focus {
+    box-shadow: none;
+  }
+  .btn-login {
+    font-size: 1rem;
+  }
+}

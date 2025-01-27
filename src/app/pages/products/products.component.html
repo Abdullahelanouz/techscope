@@ -1,0 +1,157 @@
+<div class="container mt-5">
+   <!-- شريط التصنيفات -->
+   <div class="category-bar">
+    <button *ngFor="let category of categories" 
+            (click)="filterByCategory(category)" 
+            [class.active]="selectedCategory === category">
+      {{ category }}
+    </button>
+  </div>
+  <div class="products-page">
+    
+<!-- قائمة المنتجات -->
+<!-- <h4>المنتجات</h4> -->
+<div class="product-list">
+  
+  <div *ngFor="let product of filteredProducts()" class="product-card">
+    <img [src]="product.image ? product.image : 'assets/placeholder.png'" alt="product image">
+    <h5>{{ product.name }}</h5>
+    <p>{{ product.price }}$</p>
+    <div class="product-actions">
+      <a [href]="'https://wa.me/' + product.contact" target="_blank" class="btn btn-whatsapp">
+        تواصل عبر <i class="fab fa-whatsapp"></i>
+      </a>
+      <button  class="btn btn-wishlist">
+        <a [routerLink]="'/product/' + product.id">تفاصيل المنتج</a>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- زر التصفية للشاشات الصغيرة -->
+<!-- زر إظهار/إخفاء التصنيفات للشاشات الصغيرة -->
+<div class="filters-action d-flex align-items-center justify-content-between d-md-none" >
+  <button class="btn btn-toggle-filters" type="button" data-bs-toggle="collapse" data-bs-target="#filtersCollapse" aria-expanded="false" aria-controls="filtersCollapse">
+    <div class="icon" aria-label="التصنيفات">
+      <svg xmlns="http://www.w3.org/2000/svg" class="a2-icon-filters" width="20" height="20" viewBox="0 0 20 20" style="width:20px; height:20px;">
+        <rect stroke="none" x="3" y="1" width="2" height="8"></rect>
+        <rect stroke="none" x="9" y="1" width="2" height="2"></rect>
+        <rect stroke="none" x="15" y="1" width="2" height="8"></rect>
+        <rect stroke="none" x="9" y="10" width="2" height="9"></rect>
+        <rect stroke="none" x="15" y="16" width="2" height="3"></rect>
+        <rect stroke="none" x="3" y="16" width="2" height="3"></rect>
+        <path stroke="none" d="M4,12.2c1,0,1.8,0.8,1.8,1.8S5,15.8,4,15.8S2.2,15,2.2,14S3,12.2,4,12.2 M4,11c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3 S5.7,11,4,11L4,11z"></path>
+        <path stroke="none" d="M10,6.2c1,0,1.8,0.8,1.8,1.8S11,9.8,10,9.8S8.2,9,8.2,8S9,6.2,10,6.2 M10,5C8.3,5,7,6.3,7,8s1.3,3,3,3s3-1.3,3-3 S11.7,5,10,5L10,5z"></path>
+        <path stroke="none" d="M16,12.2c1,0,1.8,0.8,1.8,1.8S17,15.8,16,15.8S14.2,15,14.2,14S15,12.2,16,12.2 M16,11c-1.7,0-3,1.3-3,3s1.3,3,3,3 s3-1.3,3-3S17.7,11,16,11L16,11z"></path>
+      </svg>
+    </div>
+    <span class="label">التصنيفات</span>
+  </button>
+</div>
+
+<div class="filters" id="filtersCollapse" class="collapse d-md-block" >
+  <h4>التصفية</h4>
+
+  <div class="filter-group">
+    <label for="priceRange">السعر:</label>
+    <input type="range" id="priceRange" [(ngModel)]="price" min="0" max="50000" step="50" (input)="updatePrice()">
+    <span>السعر الحالي: {{ price }}$</span>
+  </div>
+
+  <div class="filter-group">
+    <label>الحالة:</label>
+    <select [(ngModel)]="condition">
+      <option value="">الكل</option>
+      <option value="new">جديد</option>
+      <option value="used">مستعمل</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>الفئة:</label>
+    <select [(ngModel)]="categoryFilter">
+      <option value="">الكل</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>الشركة المصنعة:</label>
+    <select [(ngModel)]="brand">
+      <option value="">الكل</option>
+      <option value="apple">Apple</option>
+      <option value="samsung">Samsung</option>
+      <option value="huawei">Huawei</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>السلسلة:</label>
+    <select [(ngModel)]="series">
+      <option value="">الكل</option>
+      <option value="13">13</option>
+      <option value="S22">S22</option>
+      <option value="P40">P40</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>المعالج:</label>
+    <select [(ngModel)]="processor">
+      <option value="">الكل</option>
+      <option value="A15">A15</option>
+      <option value="Snapdragon 8">Snapdragon 8</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>الرامات:</label>
+    <select [(ngModel)]="ram">
+      <option value="">الكل</option>
+      <option value="4GB">4GB</option>
+      <option value="8GB">8GB</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>التخزين:</label>
+    <select [(ngModel)]="storage">
+      <option value="">الكل</option>
+      <option value="128GB">128GB</option>
+      <option value="256GB">256GB</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>أماكن الهارد:</label>
+    <select [(ngModel)]="hddSlots">
+      <option value="">الكل</option>
+      <option value="N/A">N/A</option>
+      <option value="2 Slots">2 Slots</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>المخزون:</label>
+    <select [(ngModel)]="stock">
+      <option value="">الكل</option>
+      <option value="متوفر">متوفر</option>
+      <option value="غير متوفر">غير متوفر</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>العروض:</label>
+    <input type="checkbox" [(ngModel)]="offers"> العروض المتاحة فقط
+  </div>
+
+    <!-- الترقيم -->
+  <div class="pagination">
+    <button 
+      *ngFor="let page of pages" 
+      (click)="setPage(page)" 
+      [class.active]="currentPage === page">
+      {{ page }}
+    </button>
+  </div>
+</div>

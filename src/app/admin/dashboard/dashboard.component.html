@@ -1,0 +1,20 @@
+<div class="admin-dashboard">
+  <div class="admin-content">
+    <!-- الشريط الجانبي -->
+    <aside class="sidebar">
+      <h3 class="sidebar-title">Admin Panel</h3>
+      <ul class="sidebar-menu">
+        <li><a routerLink="/admin" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/admin/products" routerLinkActive="active">Products</a></li>
+        
+      </ul>
+      <!-- زر تسجيل الخروج -->
+    <button class="btn btn-logout" (click)="logout()">Logout</button>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
